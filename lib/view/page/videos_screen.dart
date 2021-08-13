@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:turn_live/view/widget/video_player.dart';
+import 'package:video_player/video_player.dart';
 
 class VideosScreenPage extends StatelessWidget {
   @override
@@ -88,7 +90,9 @@ class VideosScreenPage extends StatelessWidget {
               ),
             ],
           ),
-          VideosScreenPage(),
+          Expanded(child: ListView.builder(itemCount: 5,itemBuilder: (context, index) {
+            return VideoApp();
+          })),
         ],
       ),
     );
