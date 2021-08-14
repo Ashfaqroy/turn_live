@@ -27,7 +27,7 @@ class _VideoAppState extends State<VideoApp> {
       height: 200,
       child: Card(
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(10),
           child: Stack(
             children: [
               _controller.value.isInitialized

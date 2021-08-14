@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:turn_live/view/page/home_screen.dart';
 import 'package:turn_live/view/page/leaderboard.dart';
+import 'package:turn_live/view/page/notifications.dart';
 import 'package:turn_live/view/page/videos_screen.dart';
 import 'package:turn_live/view/page/wardrobe.dart';
 import 'package:turn_live/view/widget/video_player.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: VideosScreenPage(),
+      home: NotificationPage(),
     );
   }
 }

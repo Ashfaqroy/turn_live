@@ -9,6 +9,7 @@ class VideosScreenPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(centerTitle: true,title: Text("Videos",style: TextStyle(color: Colors.black),),backgroundColor: Colors.white,),
         bottomNavigationBar: Container(
           height: 60,
           child: Material(
@@ -70,26 +71,6 @@ class VideosScreenPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              Icon(
-                Icons.chat_bubble,
-                color: Colors.black,
-              ),
-              Spacer(),
-              Icon(
-                Icons.bookmark,
-                color: Colors.black,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Icon(
-                Icons.notifications_none_outlined,
-                color: Colors.black,
-              ),
-            ],
-          ),
           Expanded(child: ListView.builder(itemCount: 5,itemBuilder: (context, index) {
             return VideoApp();
           })),
