@@ -52,6 +52,7 @@ flutter:
   assets:
     - assets/images/
     - assets/
+    - assets/icons/
     - assets/images/welcome.png
     - assets/images/award.png
     - assets/images/dolor.png

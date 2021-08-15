@@ -13,7 +13,7 @@ class NotificationPage extends StatelessWidget {
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            "Videos",
+            "Notifaction",
             style: TextStyle(color: Colors.black),
           ),
           backgroundColor: Colors.white,
