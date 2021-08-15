@@ -1,62 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:turn_live/view/page/notifications.dart';
 
 class NewsFeedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: Container(
-          height: 60,
-          child: Material(
-            elevation: 10,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [Icon(Icons.home), Text("Live")],
-                  ),
-                  Spacer(),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [Icon(Icons.circle_outlined), Text("Videos")],
-                  ),
-                  Spacer(),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: FloatingActionButton(
-                      onPressed: () {},
-                      child: Icon(Icons.camera_alt_outlined),
-                    ),
-                  ),
-                  Spacer(),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [Icon(Icons.feed), Text("Feed")],
-                  ),
-                  Spacer(),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Icon(Icons.security_update_good_sharp),
-                      Text("Profile")
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
+        bottomNavigationBar: ButtonBar(),
         body: NewsFeedBody(Con: context),
       ),
     );
@@ -73,21 +25,18 @@ class NewsFeedPage extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
-                Icon(
-                  Icons.chat_bubble,
-                  color: Colors.white,
-                ),
+                ImageIcon(AssetImage("assets/icons/comment.png"),
+                    color: Colors.white),
                 Spacer(),
-                Icon(
-                  Icons.bookmark,
-                  color: Colors.white,
-                ),
+                ImageIcon(AssetImage("assets/icons/medal.png"),
+                    color: Colors.white),
                 SizedBox(
-                  height: 30,
+                  height: 20,
                 ),
-                Icon(
-                  Icons.notifications_none_outlined,
-                  color: Colors.white,
+                GestureDetector(
+                  onTap: ()=>Get.to(() => NotificationPage()),
+                  child: ImageIcon(AssetImage("assets/icons/bell.png"),
+                      color: Colors.white),
                 ),
               ],
             ),
@@ -139,7 +88,7 @@ class NewsFeedPage extends StatelessWidget {
                         padding: const EdgeInsets.only(
                             left: 9, right: 15, top: 13, bottom: 15),
                         child: Image.asset(
-                          "assets/images/welcome.png",
+                          "assets/images/newsfeed.png",
                           height: 168,
                           width: 320,
                           fit: BoxFit.fill,

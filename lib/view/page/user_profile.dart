@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:turn_live/view/widget/bottombar.dart';
+
+import 'edit_profile.dart';
 
 class UserProfilePage extends StatelessWidget {
   var height;
@@ -9,19 +12,17 @@ class UserProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text(
-            "Edit Profile",
-            style: TextStyle(color: Colors.black),
-          ),
-          backgroundColor: Colors.white,
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "Edit Profile",
+          style: TextStyle(color: Colors.black),
         ),
-        bottomNavigationBar: BottomBar(),
-        body: _Body(),
+        backgroundColor: Colors.white,
       ),
+      bottomNavigationBar: BottomBar(),
+      body: _Body(),
     );
   }
 
@@ -231,14 +232,62 @@ class UserProfilePage extends StatelessWidget {
                         backgroundColor: Colors.white,
                         onPressed: () {},
                         child: ImageIcon(
-                          AssetImage("assets/icons/calander.png"),
+                          AssetImage("assets/icons/stream.png"),
                           color: Colors.black,
                         )),
                     SizedBox(
                       height: 5,
                     ),
                     Text(
-                      "Followers",
+                      "Stream \n Schedule",
+                      style: GoogleFonts.roboto(
+                          color: Colors.black,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Column(
+                  children: [
+                    FloatingActionButton(
+                        backgroundColor: Colors.white,
+                        onPressed: () =>Get.to(() => EditProfilePage()),
+                        child: ImageIcon(
+                          AssetImage("assets/icons/edit.png"),
+                          color: Colors.black,
+                        )),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      "Edit Profile",
+                      style: GoogleFonts.roboto(
+                          color: Colors.black,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w400),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Column(
+                  children: [
+                    FloatingActionButton(
+                        backgroundColor: Colors.white,
+                        onPressed: () {},
+                        child: ImageIcon(
+                          AssetImage("assets/icons/pshare.png"),
+                          color: Colors.black,
+                        )),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      "Share",
                       style: GoogleFonts.roboto(
                           color: Colors.black,
                           fontSize: 12,
@@ -255,14 +304,14 @@ class UserProfilePage extends StatelessWidget {
                         backgroundColor: Colors.white,
                         onPressed: () {},
                         child: ImageIcon(
-                          AssetImage("assets/icons/calander.png"),
+                          AssetImage("assets/icons/gua.png"),
                           color: Colors.black,
                         )),
                     SizedBox(
                       height: 5,
                     ),
                     Text(
-                      "Followers",
+                      "Guardian",
                       style: GoogleFonts.roboto(
                           color: Colors.black,
                           fontSize: 12,
@@ -279,62 +328,14 @@ class UserProfilePage extends StatelessWidget {
                         backgroundColor: Colors.white,
                         onPressed: () {},
                         child: ImageIcon(
-                          AssetImage("assets/icons/calander.png"),
+                          AssetImage("assets/icons/set.png"),
                           color: Colors.black,
                         )),
                     SizedBox(
                       height: 5,
                     ),
                     Text(
-                      "Followers",
-                      style: GoogleFonts.roboto(
-                          color: Colors.black,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Column(
-                  children: [
-                    FloatingActionButton(
-                        backgroundColor: Colors.white,
-                        onPressed: () {},
-                        child: ImageIcon(
-                          AssetImage("assets/icons/calander.png"),
-                          color: Colors.black,
-                        )),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "Followers",
-                      style: GoogleFonts.roboto(
-                          color: Colors.black,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Column(
-                  children: [
-                    FloatingActionButton(
-                        backgroundColor: Colors.white,
-                        onPressed: () {},
-                        child: ImageIcon(
-                          AssetImage("assets/icons/calander.png"),
-                          color: Colors.black,
-                        )),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "Followers",
+                      "Settings",
                       style: GoogleFonts.roboto(
                           color: Colors.black,
                           fontSize: 12,
@@ -355,16 +356,16 @@ class UserProfilePage extends StatelessWidget {
                 itemCount: 10,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio: 2 / 2.7,
-                    crossAxisSpacing: 20,
-                    mainAxisSpacing: 20),
+                    childAspectRatio: 2.2 / 2.7,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10),
                 itemBuilder: (context, index) {
                   return Column(
                     children: [
                       ClipRRect(
                         child: Image.asset(
                           "assets/images/welcome.png",
-                          height: 200,
+                          height: 180,
                           width: 200,
                           fit: BoxFit.fill,
                         ),
@@ -380,7 +381,7 @@ class UserProfilePage extends StatelessWidget {
                             "1125",
                             style: GoogleFonts.roboto(
                                 color: Colors.black,
-                                fontSize: 14,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w400),
                           ),
                           SizedBox(
@@ -394,7 +395,7 @@ class UserProfilePage extends StatelessWidget {
                             "Comment",
                             style: GoogleFonts.roboto(
                                 color: Colors.black,
-                                fontSize: 14,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w400),
                           ),
                         ],

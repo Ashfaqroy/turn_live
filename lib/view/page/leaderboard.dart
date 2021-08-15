@@ -1,63 +1,52 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:turn_live/view/widget/bottombar.dart';
 
 class LeaderboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: Container(
-          height: 60,
-          child: Material(
-            elevation: 10,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [Icon(Icons.home), Text("Live")],
-                  ),
-                  Spacer(),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [Icon(Icons.circle_outlined), Text("Videos")],
-                  ),
-                  Spacer(),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: FloatingActionButton(
-                      onPressed: () {},
-                      child: Icon(Icons.camera_alt_outlined),
-                    ),
-                  ),
-                  Spacer(),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [Icon(Icons.feed), Text("Feed")],
-                  ),
-                  Spacer(),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Icon(Icons.security_update_good_sharp),
-                      Text("Profile")
-                    ],
-                  ),
-                ],
+        appBar: AppBar(
+          automaticallyImplyLeading: false, // Don't show the leading button
+          backgroundColor: Colors.white,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              GestureDetector(
+                onTap: () => Navigator.of(context).pop(),
+                child: Icon(CupertinoIcons.back, color: Colors.blue),
               ),
-            ),
+              Text(
+                "Back",
+                style: GoogleFonts.roboto(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.blue),
+              ),
+              Spacer(),
+              Text(
+                "Leaderboard",
+                style: GoogleFonts.roboto(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black),
+              ),
+              Spacer(),
+              Text(
+                "Search",
+                style: GoogleFonts.roboto(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.blue),
+              ),
+            ],
           ),
         ),
+        bottomNavigationBar: BottomBar(),
         body: _Body(),
       ),
     );
@@ -76,7 +65,7 @@ class LeaderboardPage extends StatelessWidget {
             child: Row(
               children: [
                 SizedBox(
-                  width: 20,
+                  width: 10,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -123,7 +112,7 @@ class LeaderboardPage extends StatelessWidget {
                       "assets/images/award.png",
                       height: 110,
                       fit: BoxFit.fill,
-                      width: 100,
+                      width: 90,
                     ),
                   ],
                 )

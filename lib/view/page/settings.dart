@@ -1,12 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:turn_live/view/page/advancedsettings.dart';
 import 'package:turn_live/view/widget/bottombar.dart';
 import 'package:turn_live/view/widget/switch.dart';
 
 class SettingsPage extends StatelessWidget {
   var height;
   var width;
+
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
@@ -14,12 +17,40 @@ class SettingsPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          centerTitle: true,
-          title: Text(
-            "Advance Settings",
-            style: TextStyle(color: Colors.black),
-          ),
+          automaticallyImplyLeading: false, // Don't show the leading button
           backgroundColor: Colors.white,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              GestureDetector(
+                onTap: () => Navigator.of(context).pop(),
+                child: Icon(CupertinoIcons.back, color: Colors.blue),
+              ),
+              Text(
+                "Back",
+                style: GoogleFonts.roboto(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.blue),
+              ),
+              Spacer(),
+              Text(
+                "Settings",
+                style: GoogleFonts.roboto(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black),
+              ),
+              Spacer(),
+              Text(
+                "Cancel",
+                style: GoogleFonts.roboto(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.blue),
+              ),
+            ],
+          ),
         ),
         bottomNavigationBar: BottomBar(),
         body: _Body(),
@@ -344,7 +375,7 @@ class SettingsPage extends StatelessWidget {
                   width: width / 2.3,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(primary: Colors.grey[350]),
-                    onPressed: () {},
+                    onPressed: () => Get.to(() => AdvancedSettingsPage()),
                     child: Center(
                       child: Text(
                         "Advanceed Settings",

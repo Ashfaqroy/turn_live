@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:turn_live/view/page/leaderboard.dart';
 import 'package:turn_live/view/widget/chat.dart';
 import 'package:turn_live/view/widget/chat_comment.dart';
 
@@ -10,7 +12,7 @@ class StreamingPage extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/images/welcome.png"),
+              image: AssetImage("assets/images/streamback.jpg"),
               fit: BoxFit.cover)),
       child: Scaffold(
         body: _Body(),
@@ -165,12 +167,14 @@ class StreamingPage extends StatelessWidget {
                     height: 15,
                   ),
                   CircleAvatar(
-                    child: ImageIcon(AssetImage("assets/icons/share.png"), color: Colors.white),
+                    child: ImageIcon(AssetImage("assets/icons/share.png"),
+                        color: Colors.white),
                     backgroundColor: Color(0xFF7C7C7C).withOpacity(0.60),
                   ),
                   Spacer(),
                   CircleAvatar(
-                    child: ImageIcon(AssetImage("assets/images/dolor.png"), color: Colors.white),
+                    child: ImageIcon(AssetImage("assets/images/dolor.png"),
+                        color: Colors.white),
                     backgroundColor: Color(0xFF7C7C7C).withOpacity(0.60),
                   ),
                   Spacer(),
@@ -187,14 +191,24 @@ class StreamingPage extends StatelessWidget {
           ),
         ),
         Spacer(),
-        Expanded(
-          child: ListView.builder(
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return Chat();
-            },
-          ),
-        ),
+        // Expanded(
+        //   child: ListView.builder(
+        //     itemCount: 4,
+        //     itemBuilder: (context, index) {
+        //       return Column(
+        //         children: [
+        //           Chat(),
+        //           Chat(),
+        //           Chat(),
+        //           Chat(),
+        //         ],
+        //       );
+        //     },
+        //   ),
+        // ),
+        Chat(),
+        Chat(),
+        Chat(),
         ChatTemplate(),
         Padding(
           padding: const EdgeInsets.all(8.0),
@@ -219,15 +233,51 @@ class StreamingPage extends StatelessWidget {
               Spacer(),
               FloatingActionButton(
                 onPressed: () {},
-                child: Icon(Icons.add,color: Color(0xFF0DD9C5),),
+                child: Icon(
+                  Icons.add,
+                  color: Color(0xFF0DD9C5),
+                ),
                 backgroundColor: Color(0xFF666666).withOpacity(0.60),
               ),
               Spacer(),
               FloatingActionButton(
-                onPressed: () {},
-                child: ImageIcon(AssetImage("assets/icons/gift.png",),color: Color(0xFFEDFF82),),
+                onPressed: () {
+                  Get.to(() => LeaderboardPage());
+                },
+                child: ImageIcon(
+                  AssetImage(
+                    "assets/icons/gift.png",
+                  ),
+                  color: Color(0xFFEDFF82),
+                ),
                 backgroundColor: Color(0xFF666666).withOpacity(0.60),
               )
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 8, right: 15, bottom: 3),
+          child: Row(
+            children: [
+              SizedBox(
+                width: 230,
+              ),
+              Spacer(),
+              Text(
+                "Follow",
+                style: GoogleFonts.roboto(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400),
+              ),
+              Spacer(),
+              Text(
+                "Gift",
+                style: GoogleFonts.roboto(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400),
+              ),
             ],
           ),
         )

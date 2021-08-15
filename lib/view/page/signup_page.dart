@@ -12,16 +12,24 @@ class SignUpPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false, // Don't show the leading button
         elevation: 0,
         backgroundColor: Colors.white,
-        leading: IconButton(
-          icon: Icon(CupertinoIcons.back, color: Colors.blue),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        title: Text(
-          "Back",
-          style: GoogleFonts.roboto(
-              fontSize: 16, fontWeight: FontWeight.w500, color: Colors.blue),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            IconButton(
+              icon: Icon(CupertinoIcons.back, color: Colors.blue),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+            Text(
+              "Back",
+              style: GoogleFonts.roboto(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.blue),
+            ),
+          ],
         ),
       ),
       body: SignInBody(),

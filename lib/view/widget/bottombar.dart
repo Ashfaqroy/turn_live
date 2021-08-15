@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:turn_live/view/page/home_screen.dart';
+import 'package:turn_live/view/page/news_feed.dart';
+import 'package:turn_live/view/page/user_profile.dart';
+import 'package:turn_live/view/page/videos_screen.dart';
 
 class BottomBar extends StatefulWidget {
   BottomBar({Key? key}) : super(key: key);
@@ -24,13 +29,23 @@ class _BottomBarState extends State<BottomBar> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: [Icon(Icons.home), Text("Live")],
+                children: [
+                   GestureDetector(child: ImageIcon(AssetImage("assets/icons/home.png"), color: Colors.white),
+                    onTap: () {
+                      Get.to(() => HomeScreenPage());
+                    },
+                  ),
+                  Text("Live")
+                ],
               ),
               Spacer(),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [Icon(Icons.circle_outlined), Text("Videos")],
+              GestureDetector(
+                onTap: ()=>Get.to(() => VideosScreenPage()),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [ImageIcon(AssetImage("assets/icons/video.png"), color: Colors.white), Text("Videos")],
+                ),
               ),
               Spacer(),
               Align(
@@ -41,19 +56,25 @@ class _BottomBarState extends State<BottomBar> {
                 ),
               ),
               Spacer(),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [Icon(Icons.feed), Text("Feed")],
+              GestureDetector(
+                onTap: ()=>Get.to(() => NewsFeedPage()),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [ImageIcon(AssetImage("assets/icons/feed.png"), color: Colors.white), Text("Feed")],
+                ),
               ),
               Spacer(),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Icon(Icons.security_update_good_sharp),
-                  Text("Profile")
-                ],
+              GestureDetector(
+                onTap: ()=>Get.to(() => UserProfilePage()),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    ImageIcon(AssetImage("assets/icons/profile.png"), color: Colors.white),
+                    Text("Profile")
+                  ],
+                ),
               ),
             ],
           ),

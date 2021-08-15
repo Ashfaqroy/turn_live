@@ -1,6 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:turn_live/view/widget/bottombar.dart';
+
+import 'user_profile.dart';
 
 class EditProfilePage extends StatelessWidget {
   @override
@@ -8,12 +12,40 @@ class EditProfilePage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          centerTitle: true,
-          title: Text(
-            "Edit Profile",
-            style: TextStyle(color: Colors.black),
-          ),
+          automaticallyImplyLeading: false, // Don't show the leading button
           backgroundColor: Colors.white,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              GestureDetector(
+                onTap: () => Navigator.of(context).pop(),
+                child: Icon(CupertinoIcons.back, color: Colors.blue),
+              ),
+              Text(
+                "Back",
+                style: GoogleFonts.roboto(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.blue),
+              ),
+              Spacer(),
+              Text(
+                "Edit Profile",
+                style: GoogleFonts.roboto(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black),
+              ),
+              Spacer(),
+              Text(
+                "Cancel",
+                style: GoogleFonts.roboto(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.blue),
+              ),
+            ],
+          ),
         ),
         bottomNavigationBar: BottomBar(),
         body: _Body(),
@@ -184,18 +216,18 @@ class EditProfilePage extends StatelessWidget {
             SizedBox(
               height: 48,
               child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(),
-                        onPressed: () {},
-                        child: Center(
-                          child: Text(
-                            "Save",
-                            style: GoogleFonts.roboto(
-                                color: Colors.white,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500),
-                          ),
-                        ),
-                      ),
+                style: ElevatedButton.styleFrom(),
+                onPressed: () =>Get.to(() => UserProfilePage()),
+                child: Center(
+                  child: Text(
+                    "Save",
+                    style: GoogleFonts.roboto(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ),
+              ),
             ),
           ],
         ),

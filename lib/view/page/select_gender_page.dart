@@ -3,6 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:turn_live/view/page/home_screen.dart';
 import 'package:turn_live/view/page/signin_page.dart';
 import 'package:turn_live/view/page/signup_page.dart';
 
@@ -133,7 +134,7 @@ class SelectGenderPage extends StatelessWidget {
           ),
           ElevatedButton(
               onPressed: () {
-                Get.to(SignInPage());
+                Get.to(HomeScreenPage());
               },
               style: ElevatedButton.styleFrom(
                   primary: Color(0xFFEF5843),
@@ -148,7 +149,7 @@ class SelectGenderPage extends StatelessWidget {
                   height: 48,
                   child: Center(
                     child: Text(
-                      "Sign Up",
+                      "Submit",
                       style: GoogleFonts.roboto(
                           fontSize: 17, fontWeight: FontWeight.w500),
                     ),

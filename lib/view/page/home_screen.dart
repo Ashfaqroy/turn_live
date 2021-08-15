@@ -1,62 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:turn_live/view/page/streaming.dart';
+import 'package:turn_live/view/page/videos_screen.dart';
+import 'package:turn_live/view/widget/bottombar.dart';
 
 class HomeScreenPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: Container(
-          height: 60,
-          child: Material(
-            elevation: 10,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [Icon(Icons.home), Text("Live")],
-                  ),
-                  Spacer(),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [Icon(Icons.circle_outlined), Text("Videos")],
-                  ),
-                  Spacer(),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: FloatingActionButton(
-                      onPressed: () {},
-                      child: Icon(Icons.camera_alt_outlined),
-                    ),
-                  ),
-                  Spacer(),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [Icon(Icons.feed), Text("Feed")],
-                  ),
-                  Spacer(),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Icon(Icons.security_update_good_sharp),
-                      Text("Profile")
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
+        bottomNavigationBar: BottomBar(),
         body: HomeScreenBody(),
       ),
     );
@@ -70,22 +24,16 @@ class HomeScreenPage extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(
-                Icons.chat_bubble,
-                color: Colors.black,
-              ),
+              ImageIcon(AssetImage("assets/icons/comment.png"),
+                  color: Colors.black),
               Spacer(),
-              Icon(
-                Icons.bookmark,
-                color: Colors.black,
-              ),
+              ImageIcon(AssetImage("assets/icons/medal.png"),
+                  color: Colors.black),
               SizedBox(
                 height: 20,
               ),
-              Icon(
-                Icons.notifications_none_outlined,
-                color: Colors.black,
-              ),
+              ImageIcon(AssetImage("assets/icons/bell.png"),
+                  color: Colors.black),
             ],
           ),
           SizedBox(
@@ -93,10 +41,8 @@ class HomeScreenPage extends StatelessWidget {
           ),
           Row(
             children: [
-              Icon(
-                Icons.event,
-                color: Colors.black,
-              ),
+              ImageIcon(AssetImage("assets/icons/event.png"),
+                  color: Colors.black),
               SizedBox(
                 width: 5,
               ),
@@ -116,10 +62,8 @@ class HomeScreenPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(
-                      Icons.fireplace_outlined,
-                      color: Colors.amber,
-                    ),
+                    ImageIcon(AssetImage("assets/icons/whatshot.png"),
+                        color: Colors.amber),
                     SizedBox(
                       width: 5,
                     ),
@@ -134,9 +78,14 @@ class HomeScreenPage extends StatelessWidget {
                 ),
               ),
               Spacer(),
-              Icon(
-                Icons.live_tv,
+              IconButton(
+                icon: Icon(
+                  Icons.live_tv,
+                ),
                 color: Colors.black,
+                onPressed: () {
+                  Get.to(() => VideosScreenPage());
+                },
               ),
               SizedBox(
                 width: 5,
@@ -149,10 +98,8 @@ class HomeScreenPage extends StatelessWidget {
                     fontWeight: FontWeight.w400),
               ),
               Spacer(),
-              Icon(
-                Icons.library_music,
-                color: Colors.black,
-              ),
+              ImageIcon(AssetImage("assets/icons/music.png"),
+                  color: Colors.black),
               SizedBox(
                 width: 5,
               ),
@@ -175,7 +122,7 @@ class HomeScreenPage extends StatelessWidget {
             child: Row(
               children: [
                 SizedBox(
-                  width: 20,
+                  width: 10,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -222,7 +169,7 @@ class HomeScreenPage extends StatelessWidget {
                       "assets/images/award.png",
                       height: 110,
                       fit: BoxFit.fill,
-                      width: 100,
+                      width: 90,
                     ),
                   ],
                 )
@@ -280,26 +227,31 @@ class HomeScreenPage extends StatelessWidget {
                       children: <Widget>[
                         Expanded(
                           child: GridView.builder(
-                            physics: NeverScrollableScrollPhysics(),
+
                             scrollDirection: Axis.vertical,
                             shrinkWrap: true,
                             itemCount: 10,
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(
                                     crossAxisCount: 2,
-                                    childAspectRatio: 2 / 2.2,
-                                    crossAxisSpacing: 20,
-                                    mainAxisSpacing: 20),
+                                    childAspectRatio: 2 / 2.5,
+                                    crossAxisSpacing: 5,
+                                    mainAxisSpacing: 5),
                             itemBuilder: (context, index) {
                               return Stack(
                                 children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(10),
-                                    child: Image.asset(
-                                      "assets/images/welcome.png",
-                                      height: 200,
-                                      width: 200,
-                                      fit: BoxFit.fill,
+                                  InkWell(
+                                    onTap: (){
+                                      Get.to(() => StreamingPage());
+                                    },
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: Image.asset(
+                                        "assets/images/homepic.png",
+                                        height: 200,
+                                        width: 190,
+                                        fit: BoxFit.fill,
+                                      ),
                                     ),
                                   ),
                                   Align(
@@ -311,7 +263,7 @@ class HomeScreenPage extends StatelessWidget {
                                           MainAxisAlignment.start,
                                       children: [
                                         Padding(
-                                          padding: const EdgeInsets.all(8.0),
+                                          padding: const EdgeInsets.all(5.0),
                                           child: Column(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.end,
@@ -339,7 +291,7 @@ class HomeScreenPage extends StatelessWidget {
                                         Padding(
                                           padding: const EdgeInsets.all(8.0),
                                           child: Container(
-                                            width: 70,
+                                            width: 60,
                                             height: 25,
                                             color: Colors.black,
                                             child: Row(

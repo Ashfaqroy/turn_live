@@ -9,6 +9,7 @@ import 'package:turn_live/view/page/streaming.dart';
 import 'package:turn_live/view/page/user_profile.dart';
 import 'package:turn_live/view/page/videos_screen.dart';
 import 'package:turn_live/view/page/wardrobe.dart';
+import 'package:turn_live/view/page/welcome_page.dart';
 import 'package:turn_live/view/widget/video_player.dart';
 
 import 'view/page/followers_screen.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: StreamingPage(),
+      home: WelcomePage(),
     );
   }
 }
