@@ -5,6 +5,7 @@ import 'package:turn_live/view/page/edit_profile.dart';
 import 'package:turn_live/view/page/home_screen.dart';
 import 'package:turn_live/view/page/leaderboard.dart';
 import 'package:turn_live/view/page/notifications.dart';
+import 'package:turn_live/view/page/streaming.dart';
 import 'package:turn_live/view/page/user_profile.dart';
 import 'package:turn_live/view/page/videos_screen.dart';
 import 'package:turn_live/view/page/wardrobe.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: HomeScreenPage(),
+      home: StreamingPage(),
     );
   }
 }

@@ -347,60 +347,62 @@ class UserProfilePage extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            GridView.builder(
-              physics: NeverScrollableScrollPhysics(),
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              itemCount: 10,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 2 / 2.7,
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20),
-              itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    ClipRRect(
-                      child: Image.asset(
-                        "assets/images/welcome.png",
-                        height: 200,
-                        width: 200,
-                        fit: BoxFit.fill,
+            Expanded(
+              child: GridView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: 10,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 2 / 2.7,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20),
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      ClipRRect(
+                        child: Image.asset(
+                          "assets/images/welcome.png",
+                          height: 200,
+                          width: 200,
+                          fit: BoxFit.fill,
+                        ),
                       ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.favorite_outline,
-                          color: Colors.black,
-                        ),
-                        Text(
-                          "1125",
-                          style: GoogleFonts.roboto(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Icon(
-                          Icons.comment_outlined,
-                          color: Colors.black,
-                        ),
-                        Text(
-                          "Comment",
-                          style: GoogleFonts.roboto(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400),
-                        ),
-                      ],
-                    ),
-                  ],
-                );
-              },
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Icon(
+                            Icons.favorite_outline,
+                            color: Colors.black,
+                          ),
+                          Text(
+                            "1125",
+                            style: GoogleFonts.roboto(
+                                color: Colors.black,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Icon(
+                            Icons.comment_outlined,
+                            color: Colors.black,
+                          ),
+                          Text(
+                            "Comment",
+                            style: GoogleFonts.roboto(
+                                color: Colors.black,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ],
+                      ),
+                    ],
+                  );
+                },
+              ),
             ),
           ],
         ),

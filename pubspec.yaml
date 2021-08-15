@@ -55,7 +55,12 @@ flutter:
     - assets/icons/
     - assets/images/welcome.png
     - assets/images/award.png
-    - assets/images/dolor.png
+    - assets/images/dolor.
+  fonts:              # Required if your app uses custom fonts
+    - family: NotoEmoji
+      fonts:
+        - asset: assets/font/NotoColorEmoji.ttf
+         # weight: 400
 
 
   #   - images/a_dot_ham.jpeg

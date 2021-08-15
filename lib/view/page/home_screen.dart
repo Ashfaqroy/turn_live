@@ -88,25 +88,85 @@ class HomeScreenPage extends StatelessWidget {
               ),
             ],
           ),
+          SizedBox(
+            height: 20,
+          ),
           Row(
             children: [
               Icon(
-                Icons.chat_bubble,
-                color: Colors.black,
-              ),
-              Spacer(),
-              Icon(
-                Icons.bookmark,
+                Icons.event,
                 color: Colors.black,
               ),
               SizedBox(
-                height: 20,
+                width: 5,
               ),
+              Text(
+                "Event",
+                style: GoogleFonts.roboto(
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400),
+              ),
+              Spacer(),
+              Container(
+                height: 38,
+                width: 90,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4), color: Colors.red),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.fireplace_outlined,
+                      color: Colors.amber,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      "Hot",
+                      style: GoogleFonts.roboto(
+                          color: Colors.black,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400),
+                    ),
+                  ],
+                ),
+              ),
+              Spacer(),
               Icon(
-                Icons.notifications_none_outlined,
+                Icons.live_tv,
                 color: Colors.black,
               ),
+              SizedBox(
+                width: 5,
+              ),
+              Text(
+                "Live+",
+                style: GoogleFonts.roboto(
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400),
+              ),
+              Spacer(),
+              Icon(
+                Icons.library_music,
+                color: Colors.black,
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Text(
+                "Music",
+                style: GoogleFonts.roboto(
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400),
+              )
             ],
+          ),
+          SizedBox(
+            height: 10,
           ),
           Container(
             decoration: BoxDecoration(
@@ -219,59 +279,99 @@ class HomeScreenPage extends StatelessWidget {
                     child: TabBarView(
                       children: <Widget>[
                         Expanded(
-                          child:
-                              ListView.builder(itemBuilder: (context, index) {
-                            return Card(
-                              child: Container(
-                                height: 70,
-                                child: Row(
-                                  children: [
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(5),
-                                      child: Image(
-                                          width: 40,
-                                          height: 40,
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                            "assets/images/welcome.png",
-                                          )),
-                                    ),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Text(
-                                      "Jason W.",
-                                      style: GoogleFonts.roboto(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w400),
-                                    ),
-                                    Spacer(),
-                                    Image.asset(
-                                      "assets/images/dolor.png",
-                                      height: 25,
+                          child: GridView.builder(
+                            physics: NeverScrollableScrollPhysics(),
+                            scrollDirection: Axis.vertical,
+                            shrinkWrap: true,
+                            itemCount: 10,
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    childAspectRatio: 2 / 2.2,
+                                    crossAxisSpacing: 20,
+                                    mainAxisSpacing: 20),
+                            itemBuilder: (context, index) {
+                              return Stack(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Image.asset(
+                                      "assets/images/welcome.png",
+                                      height: 200,
+                                      width: 200,
                                       fit: BoxFit.fill,
-                                      width: 25,
                                     ),
-                                    SizedBox(
-                                      width: 10,
+                                  ),
+                                  Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              Text(
+                                                "Omid Amin",
+                                                style: GoogleFonts.roboto(
+                                                    color: Colors.white,
+                                                    fontSize: 12,
+                                                    fontWeight:
+                                                        FontWeight.w600),
+                                              ),
+                                              Text(
+                                                "Usrad stram",
+                                                style: GoogleFonts.roboto(
+                                                    color: Colors.white,
+                                                    fontSize: 10,
+                                                    fontWeight:
+                                                        FontWeight.w400),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Spacer(),
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Container(
+                                            width: 70,
+                                            height: 25,
+                                            color: Colors.black,
+                                            child: Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Icon(
+                                                  Icons.star,
+                                                  size: 15,
+                                                  color: Colors.amber,
+                                                ),
+                                                Text(
+                                                  "Level 12",
+                                                  style: GoogleFonts.roboto(
+                                                      color: Colors.white,
+                                                      fontSize: 12,
+                                                      fontWeight:
+                                                          FontWeight.w500),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    Text(
-                                      "12,524 K",
-                                      style: GoogleFonts.roboto(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w400),
-                                    ),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            );
-                          }),
+                                  ),
+                                ],
+                              );
+                            },
+                          ),
                         ),
                         Center(
                           child: Icon(Icons.directions_transit),
