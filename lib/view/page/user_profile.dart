@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:turn_live/view/page/settings.dart';
 import 'package:turn_live/view/widget/bottombar.dart';
 
 import 'edit_profile.dart';
@@ -27,9 +28,9 @@ class UserProfilePage extends StatelessWidget {
   }
 
   _Body() {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -254,7 +255,7 @@ class UserProfilePage extends StatelessWidget {
                   children: [
                     FloatingActionButton(
                         backgroundColor: Colors.white,
-                        onPressed: () =>Get.to(() => EditProfilePage()),
+                        onPressed: () => Get.to(() => EditProfilePage()),
                         child: ImageIcon(
                           AssetImage("assets/icons/edit.png"),
                           color: Colors.black,
@@ -326,7 +327,7 @@ class UserProfilePage extends StatelessWidget {
                   children: [
                     FloatingActionButton(
                         backgroundColor: Colors.white,
-                        onPressed: () {},
+                        onPressed: () => Get.to(() => SettingsPage()),
                         child: ImageIcon(
                           AssetImage("assets/icons/set.png"),
                           color: Colors.black,
@@ -348,62 +349,60 @@ class UserProfilePage extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            Expanded(
-              child: GridView.builder(
-                physics: NeverScrollableScrollPhysics(),
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                itemCount: 10,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 2.2 / 2.7,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10),
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      ClipRRect(
-                        child: Image.asset(
-                          "assets/images/welcome.png",
-                          height: 180,
-                          width: 200,
-                          fit: BoxFit.fill,
+            GridView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              itemCount: 10,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 2.2 / 2.7,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10),
+              itemBuilder: (context, index) {
+                return Column(
+                  children: [
+                    ClipRRect(
+                      child: Image.asset(
+                        "assets/images/welcome.png",
+                        height: 180,
+                        width: 200,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Icon(
+                          Icons.favorite_outline,
+                          color: Colors.black,
                         ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Icon(
-                            Icons.favorite_outline,
-                            color: Colors.black,
-                          ),
-                          Text(
-                            "1125",
-                            style: GoogleFonts.roboto(
-                                color: Colors.black,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400),
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Icon(
-                            Icons.comment_outlined,
-                            color: Colors.black,
-                          ),
-                          Text(
-                            "Comment",
-                            style: GoogleFonts.roboto(
-                                color: Colors.black,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400),
-                          ),
-                        ],
-                      ),
-                    ],
-                  );
-                },
-              ),
+                        Text(
+                          "1125",
+                          style: GoogleFonts.roboto(
+                              color: Colors.black,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Icon(
+                          Icons.comment_outlined,
+                          color: Colors.black,
+                        ),
+                        Text(
+                          "Comment",
+                          style: GoogleFonts.roboto(
+                              color: Colors.black,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400),
+                        ),
+                      ],
+                    ),
+                  ],
+                );
+              },
             ),
           ],
         ),

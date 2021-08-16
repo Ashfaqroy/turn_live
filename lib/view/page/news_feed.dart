@@ -3,12 +3,92 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:turn_live/view/page/notifications.dart';
 
+import 'home_screen.dart';
+import 'user_profile.dart';
+import 'videos_screen.dart';
+
 class NewsFeedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: ButtonBar(),
+        bottomNavigationBar: Container(
+          height: 60,
+          child: Material(
+            elevation: 10,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      GestureDetector(
+                        child: ImageIcon(AssetImage("assets/icons/home.png"),
+                            color: Colors.black),
+                        onTap: () {
+                          Get.to(() => HomeScreenPage());
+                        },
+                      ),
+                      Text("Live")
+                    ],
+                  ),
+                  Spacer(),
+                  GestureDetector(
+                    onTap: () => Get.to(() => VideosScreenPage()),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        ImageIcon(AssetImage("assets/icons/video.png"),
+                            color: Colors.black),
+                        Text("Videos")
+                      ],
+                    ),
+                  ),
+                  Spacer(),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: FloatingActionButton(
+                      onPressed: () {},
+                      child: Icon(Icons.camera_alt_outlined),
+                    ),
+                  ),
+                  Spacer(),
+                  GestureDetector(
+                    onTap: () => Get.to(() => NewsFeedPage()),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        ImageIcon(AssetImage("assets/icons/feed.png"),
+                            color: Colors.black),
+                        Text("Feed")
+                      ],
+                    ),
+                  ),
+                  Spacer(),
+                  GestureDetector(
+                    onTap: () => Get.to(() => UserProfilePage()),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        ImageIcon(AssetImage("assets/icons/profile.png"),
+                            color: Colors.black),
+                        Text("Profile")
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
         body: NewsFeedBody(Con: context),
       ),
     );
@@ -34,7 +114,7 @@ class NewsFeedPage extends StatelessWidget {
                   height: 20,
                 ),
                 GestureDetector(
-                  onTap: ()=>Get.to(() => NotificationPage()),
+                  onTap: () => Get.to(() => NotificationPage()),
                   child: ImageIcon(AssetImage("assets/icons/bell.png"),
                       color: Colors.white),
                 ),

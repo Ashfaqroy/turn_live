@@ -30,7 +30,7 @@ class _BottomBarState extends State<BottomBar> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                   GestureDetector(child: ImageIcon(AssetImage("assets/icons/home.png"), color: Colors.white),
+                   GestureDetector(child: ImageIcon(AssetImage("assets/icons/home.png"), color: Colors.black),
                     onTap: () {
                       Get.to(() => HomeScreenPage());
                     },
@@ -44,7 +44,7 @@ class _BottomBarState extends State<BottomBar> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: [ImageIcon(AssetImage("assets/icons/video.png"), color: Colors.white), Text("Videos")],
+                  children: [ImageIcon(AssetImage("assets/icons/video.png"), color: Colors.black), Text("Videos")],
                 ),
               ),
               Spacer(),
@@ -61,7 +61,7 @@ class _BottomBarState extends State<BottomBar> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: [ImageIcon(AssetImage("assets/icons/feed.png"), color: Colors.white), Text("Feed")],
+                  children: [ImageIcon(AssetImage("assets/icons/feed.png"), color: Colors.black), Text("Feed")],
                 ),
               ),
               Spacer(),
@@ -71,7 +71,7 @@ class _BottomBarState extends State<BottomBar> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    ImageIcon(AssetImage("assets/icons/profile.png"), color: Colors.white),
+                    ImageIcon(AssetImage("assets/icons/profile.png"), color: Colors.black),
                     Text("Profile")
                   ],
                 ),

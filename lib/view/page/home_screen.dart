@@ -227,7 +227,6 @@ class HomeScreenPage extends StatelessWidget {
                       children: <Widget>[
                         Expanded(
                           child: GridView.builder(
-
                             scrollDirection: Axis.vertical,
                             shrinkWrap: true,
                             itemCount: 10,
@@ -241,14 +240,14 @@ class HomeScreenPage extends StatelessWidget {
                               return Stack(
                                 children: [
                                   InkWell(
-                                    onTap: (){
+                                    onTap: () {
                                       Get.to(() => StreamingPage());
                                     },
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(10),
                                       child: Image.asset(
                                         "assets/images/homepic.png",
-                                        height: 200,
+                                        height: 220,
                                         width: 190,
                                         fit: BoxFit.fill,
                                       ),

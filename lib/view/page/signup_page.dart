@@ -18,9 +18,9 @@ class SignUpPage extends StatelessWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            IconButton(
-              icon: Icon(CupertinoIcons.back, color: Colors.blue),
-              onPressed: () => Navigator.of(context).pop(),
+            GestureDetector(
+              child: Icon(CupertinoIcons.back, color: Colors.blue),
+              onTap: () => Navigator.of(context).pop(),
             ),
             Text(
               "Back",
