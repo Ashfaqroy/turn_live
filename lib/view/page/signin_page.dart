@@ -13,22 +13,23 @@ class SignInPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-          automaticallyImplyLeading: false, // Don't show the leading button
+        automaticallyImplyLeading: false, // Don't show the leading button
         elevation: 0,
         backgroundColor: Colors.white,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             GestureDetector(
-              child: Icon(
-                CupertinoIcons.back, color: Colors.blue),
-                onTap: () => Navigator.of(context).pop(),
+              child: Icon(CupertinoIcons.back, color: Colors.blue),
+              onTap: () => Navigator.of(context).pop(),
             ),
             Text(
-          "Back",
-          style: GoogleFonts.roboto(
-              fontSize: 16, fontWeight: FontWeight.w500, color: Colors.blue),
-        ), 
+              "Back",
+              style: GoogleFonts.roboto(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.blue),
+            ),
           ],
         ),
       ),
@@ -153,7 +154,7 @@ class SignInPage extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                     color: Colors.black)),
             TextSpan(
-                text: " SING UP",
+                text: " SIGN UP",
                 style: GoogleFonts.roboto(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
